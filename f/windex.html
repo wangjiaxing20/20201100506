@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文物</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }        /* 初始化样式 */
+        .main{
+            width: 1000px;
+            margin: auto;
+            background-color:bisque;
+        }
+        .header,.nav,.container,.footer{
+            float: left;
+            width: 100%;
+            box-sizing: border-box;/* 让整体大小不要受内边距影响，页面会更加和谐统一 */
+        }
+        .header{
+            background-color: bisque;
+            padding: 20px;
+            text-align: center;
+        }
+        .nav{
+            background-color: #DAAF69;
+            height: 40px;
+        }
+        .libt a{
+            color: black;
+            padding: 9px 20px;
+            display: inline-block;            /* 块显示按钮，鼠标悬停的时候 */
+        }
+        .libt a:hover{
+            background: #957A5C;
+            color: black;
+        }
+        .libt{
+            float: left;
+            text-align: center;
+        }
+        .droplist{
+            background: #DAAF69;
+            box-shadow: 0px 1px 2px #957A5C;
+        }
+        .lside{
+            background: linear-gradient(#DAAF69,white);
+            width: 200px;
+            float: left;
+        }
+        .rside{
+            background: linear-gradient(#DAAF69,white);
+            width: 200px;
+            float: right;
+        }
+        .content{
+            margin: 0px 205px;
+        }
+        .lside,.rside,.content{
+            padding: 10px;
+            box-sizing: border-box;            /* 去掉内边距影响 */
+        }
+        .footer{
+            background: linear-gradient(white,#DAAF69);
+            padding: 10px;
+            text-align: center;
+        }
+        @media screen and (max-width:700px) {
+            .lside,.rside,.content{
+                width: 100%;
+                margin: 0px;
+            }
+        }
+        .banner{
+            width: 940px;
+            height: 300px;
+            background: #957A5C;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .littleban{
+            width: 800px;
+            height: 280px;
+            margin-left: 70px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        #imglist{
+            width: 3200px;
+            height: 280px;
+        }
+        #imglist img{
+            width: 800px;
+            height: 280px;
+            float: left;
+        }
+        .prev{
+            background: linear-gradient(#957A5C,#DAAF69,#957A5C);
+            width: 70px;
+            height: 280px;
+            color: antiquewhite;
+            text-align: center;
+            line-height: 300px;
+            position: absolute;
+            top: 10px;
+            left: 0px;
+            cursor: pointer;
+        }
+        .next{
+            background: linear-gradient(#957A5C,#DAAF69,#957A5C);
+            width: 70px;
+            height: 280px;
+            color: antiquewhite;
+            text-align: center;
+            line-height: 300px;
+            position: absolute;
+            top: 10px;
+            right: 0px;
+            cursor: pointer;
+        }
+        #icolist{
+            position: absolute;
+            right: 45%;
+            bottom: 10px;
+        }
+        #icolist li{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            color: #000;
+            background: white;
+            text-align: center;
+            line-height: 300px;
+            float: left;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .h1{
+            float: left;
+            color: #957A5C;
+            margin-left: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <h1 class="h1">
+                如果文物会说话
+            </h1>
+            <div class="banner">
+                <!-- 做一个可以翻页的宣传栏 -->
+                <div class="littleban">
+                    <ul id="imglist">
+                        <li><img src="../img/img1.png" alt=""></li>
+                        <li><img src="../img/img2.png" alt=""></li>
+                        <li><img src="../img/img3.png" alt=""></li>
+                        <li><img src="../img/img1.png" alt=""></li>
+                    </ul>
+                    <ul id="icolist">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </div>
+                <div class="prev">《《</div>
+                <div class="next">》》</div>
+                <script>
+                    var eprev = document.querySelector('.prev');
+                    var enext = document.querySelector('.next');
+                    var esico = document.getElementById('icolist').getElementsByTagName('li');
+                    var eicolist = document.querySelector('#icolist');
+                    var eimglist = document.querySelector('#imglist');
+                    var left = 0;
+                    var timer;
+                    run();
+                    function run(){
+                        if (left <= -2400) {
+                            left = 0;
+                        }
+                        var m = Math.floor(-left/800)
+                        imglist.style.marginLeft = left + 'px';
+                        var n = (left % 800 == 0)? n = 1200 : n = 10;
+                        left -= 10;
+                        timer = setTimeout(run,n);
+                        icochange(m);
+                    }
+                    // 图片定位
+                    function imgchange(n){
+                        let lt = -(n * 800);
+                        imglist.style.marginLeft = lt + 'px';
+                        left = lt;
+                    }
+                    eprev.onclick = function(){
+                        let prevgo = Math.floor(-left / 800) - 1;
+                        if(prevgo == -1){
+                            prevgo = 2;
+                        }
+                        imgchange(prevgo);
+                    }
+                    enext.onclick = function(){
+                        let nextgo = Math.floor(-left / 800) + 1;
+                        if(nextgo == 3){
+                            nextgo = 1;
+                        }
+                        imgchange(nextgo);
+                    }
+                    function icochange(m){
+                        for(let index = 0; index < esico.length;index++){
+                            esico[index].style.backgroundColor = '';                            
+                        }
+                        if(m < esico.length){
+                            esico[m].style.backgroundColor = '#DAAF69';
+                        }
+                    }
+                    eicolist.onclick = function(){
+                        var tg = event.target;
+                        let ico = tg.innerHTML - 1;
+                        imgchange(ico);
+                        icochange(ico);
+                    }
+                    eimglist.onmouseover = function(){
+                        clearTimeout(timer);
+                    }
+                    eimglist.onmouseout = function(){
+                        run();
+                    }
+                </script>
+            </div>
+            
+        </div>
+        <div class="nav">
+            <ul class="ullist">
+                <li class="libt">
+                    <a >▷朝代</a>
+                    <ul class="droplist">
+                        <li><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li><a href="">6</a></li>
+                        <li><a href="">7</a></li>
+                        <li><a href="">8</a></li>
+                        <li><a href="">9</a></li>
+                        <li><a href="">10</a></li>
+                        <li><a href="">11</a></li>
+                        <li><a href="">12</a></li>
+                        <li><a href="">13</a></li>
+                    </ul>
+                </li>
+                <li class="libt"><a>▷材质</a></li>
+                <li class="libt"><a>▷出土地</a></li>
+                <li class="libt"><a>搜索</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="lside">
+                <h2>我是左边框</h2>
+                <p>
+                    左侧内容
+                    左侧内容
+                    左侧内容
+                    左侧内容
+                    左侧内容
+                    左侧内容
+                </p>
+                <p>左侧内容</p>
+                
+            </div>
+            <div class="rside">
+                <h2>我是右边框</h2>
+                <p>
+                    youbian
+                    youbian
+                    youbian
+                    youbian
+                    youbian
+                    youbian
+                </p>
+            </div>
+            <div class="content">
+                <h2>我是中间栏</h2>
+                <p>
+                    我是中间的内容
+                    我是中间的内容
+                    我是中间的内容
+                    我是中间的内容
+                    我是中间的内容
+                    我是中间的内容
+                </p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>网页底部主要放版权声明，备案信息，联系方式，友情链接等。</p>
+        </div>
+    </div>
+</body>
+</html>
