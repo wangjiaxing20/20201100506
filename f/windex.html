@@ -46,6 +46,14 @@
         .droplist{
             background: #DAAF69;
             box-shadow: 0px 1px 2px #957A5C;
+            display: none;
+        }
+        .libt:hover .droplist{
+            display: block;
+        }
+        .droplist li{
+            /* 用上边框线把每一项隔开 */
+            border-top: 1px solid #DAAF69;
         }
         .lside{
             background: linear-gradient(#DAAF69,white);
@@ -168,8 +176,8 @@
                         <li>3</li>
                     </ul>
                 </div>
-                <div class="prev">《《</div>
-                <div class="next">》》</div>
+                <div class="prev">◀</div>
+                <div class="next">▶</div>
                 <script>
                     var eprev = document.querySelector('.prev');
                     var enext = document.querySelector('.next');
@@ -239,23 +247,21 @@
                 <li class="libt">
                     <a >▷朝代</a>
                     <ul class="droplist">
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <li><a href="">8</a></li>
-                        <li><a href="">9</a></li>
-                        <li><a href="">10</a></li>
-                        <li><a href="">11</a></li>
-                        <li><a href="">12</a></li>
-                        <li><a href="">13</a></li>
+                        <li><a href="">商</a></li>
+                        <li><a href="">周</a></li>
+                        <li><a href="">汉</a></li>
+                        <li><a href="">三国</a></li>
+                        <li><a href="">东晋十六国</a></li>
+                        <li><a href="">南北朝</a></li>
+                        <li><a href="">唐代</a></li>
+                        <li><a href="">五代十国</a></li>
+                        <li><a href="">宋</a></li>
+                        <li><a href="">元</a></li>
+                        <li><a href="">明</a></li>
+                        <li><a href="">清</a></li>
+                        <li><a href="">中华民国</a></li>
                     </ul>
                 </li>
-                <li class="libt"><a>▷材质</a></li>
-                <li class="libt"><a>▷出土地</a></li>
                 <li class="libt"><a>搜索</a></li>
             </ul>
         </div>
@@ -263,8 +269,8 @@
             <div class="lside">
                 <h2>我是左边框</h2>
                 <p>
-                    左侧内容
-                    左侧内容
+                    材质
+                    
                     左侧内容
                     左侧内容
                     左侧内容
@@ -288,10 +294,20 @@
                 <h2>我是中间栏</h2>
                 <p>
                     我是中间的内容
+                    <br>
                     我是中间的内容
+                    <br>
                     我是中间的内容
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     我是中间的内容
+                    <br>
                     我是中间的内容
+                    <br>
                     我是中间的内容
                 </p>
             </div>
