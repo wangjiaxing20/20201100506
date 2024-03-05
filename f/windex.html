@@ -43,32 +43,57 @@
             float: left;
             text-align: center;
         }
-        .droplist{
-            background: #DAAF69;
+        .rightlist{
             box-shadow: 0px 1px 2px #957A5C;
-            display: none;
+            line-height: 20px;
         }
-        .libt:hover .droplist{
-            display: block;
-        }
-        .droplist li{
+        .rightlist li{
             /* 用上边框线把每一项隔开 */
             border-top: 1px solid #DAAF69;
+            height: 25px;
+            width: 160px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;            /* 防止文字换行 */
+            margin: 10px;
         }
         .lside{
             background: linear-gradient(#DAAF69,white);
-            width: 200px;
+            width: 800px;
+            height: 560px;
             float: left;
+            overflow: hidden;
         }
         .rside{
             background: linear-gradient(#DAAF69,white);
             width: 200px;
+            height: 560px;
             float: right;
         }
         .content{
-            margin: 0px 205px;
+            width: 680px;
+            height: 7072px;
+            background: #f9ede6;
+            position: relative;  
+            bottom: 560px;
+            left: 100px;
+            padding: 10px;
         }
-        .lside,.rside,.content{
+        /* 选中时切换背景 */
+        #ck1:checked ~ label[for = "ck1"]{ background: #f9ede6;}
+        #ck2:checked ~ label[for = "ck2"]{ background: #f9ede6;}
+        #ck3:checked ~ label[for = "ck3"]{ background: #f9ede6;}
+        #ck4:checked ~ label[for = "ck4"]{ background: #f9ede6;}
+        #ck5:checked ~ label[for = "ck5"]{ background: #f9ede6;}
+        #ck6:checked ~ label[for = "ck6"]{ background: #f9ede6;}
+        #ck7:checked ~ label[for = "ck7"]{ background: #f9ede6;}
+        #ck8:checked ~ label[for = "ck8"]{ background: #f9ede6;}
+        #ck9:checked ~ label[for = "ck9"]{ background: #f9ede6;}
+        #ck10:checked ~ label[for = "ck10"]{ background: #f9ede6;}
+        #ck11:checked ~ label[for = "ck11"]{ background: #f9ede6;}
+        #ck12:checked ~ label[for = "ck12"]{ background: #f9ede6;}
+        #ck13:checked ~ label[for = "ck13"]{ background: #f9ede6;}
+        .lside,.rside{
             padding: 10px;
             box-sizing: border-box;            /* 去掉内边距影响 */
         }
@@ -153,6 +178,76 @@
             color: #957A5C;
             margin-left: 25px;
         }
+        .tab{
+            width: 800px;
+            height: 544px;
+            overflow: hidden;
+        }
+        .tab input{
+            display: none;
+        }
+        .tab label{
+            width: 100px;
+            height: 40px;
+            display: block;
+            background-color: antiquewhite;
+            margin-bottom: 2px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            border-radius: 12px 0 0 12px;
+        }
+        .tab label:hover{
+            background: none;
+        }
+        .content li{
+            width: 600px;
+            height: 544px;
+        }
+        .zhanshi{
+            width: 280px;
+            height: 400px;
+            /* background: #000; */
+            margin: 50px 10px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 1px 3px #666;
+            float: left;
+        }
+        .zhanshi img{
+            width: 280px;
+            height: 280px;
+            float: left;
+        }
+        .zhanshitext{
+            width: 280px;
+            height: 120px;
+            background: white;
+            float: left;
+            line-height: 40px;
+            text-align: center;
+        }
+        .zhanshi h3{
+            text-align: center;
+            line-height: 60px;
+        }
+        .zhanshi a{
+            float:right;
+        }
+        /* 点击后位置变化 */
+        #ck1:checked ~ ul{margin-top: 0px;}
+        #ck2:checked ~ ul{margin-top: -544px;}
+        #ck3:checked ~ ul{margin-top: -1088px;}
+        #ck4:checked ~ ul{margin-top: -1632px;}
+        #ck5:checked ~ ul{margin-top: -2176px;}
+        #ck6:checked ~ ul{margin-top: -2720px;}
+        #ck7:checked ~ ul{margin-top: -3264px;}
+        #ck8:checked ~ ul{margin-top: -3808px;}
+        #ck9:checked ~ ul{margin-top: -4352px;}
+        #ck10:checked ~ ul{margin-top: -4896px;}
+        #ck11:checked ~ ul{margin-top: -5440px;}
+        #ck12:checked ~ ul{margin-top: -5984px;}
+        #ck13:checked ~ ul{margin-top: -6528px;}
     </style>
 </head>
 <body>
@@ -267,53 +362,306 @@
         </div>
         <div class="container">
             <div class="lside">
-                <h2>我是左边框</h2>
-                <p>
-                    材质
-                    
-                    左侧内容
-                    左侧内容
-                    左侧内容
-                    左侧内容
-                </p>
-                <p>左侧内容</p>
+                <div class="tab">
+                    <!-- 十三个选项卡 -->
+                    <input type="radio" id="ck1" name="mytab" checked>
+                    <input type="radio" id="ck2" name="mytab">
+                    <input type="radio" id="ck3" name="mytab">
+                    <input type="radio" id="ck4" name="mytab">
+                    <input type="radio" id="ck5" name="mytab">
+                    <input type="radio" id="ck6" name="mytab">
+                    <input type="radio" id="ck7" name="mytab">
+                    <input type="radio" id="ck8" name="mytab">
+                    <input type="radio" id="ck9" name="mytab">
+                    <input type="radio" id="ck10" name="mytab">
+                    <input type="radio" id="ck11" name="mytab">
+                    <input type="radio" id="ck12" name="mytab">
+                    <input type="radio" id="ck13" name="mytab">
+                    <label for="ck1">商</label>
+                    <label for="ck2">周</label>
+                    <label for="ck3">汉</label>
+                    <label for="ck4">三国</label>
+                    <label for="ck5">东晋十六国</label>
+                    <label for="ck6">南北朝</label>
+                    <label for="ck7">唐代</label>
+                    <label for="ck8">五代十国</label>
+                    <label for="ck9">宋</label>
+                    <label for="ck10">元</label>
+                    <label for="ck11">明</label>
+                    <label for="ck12">清</label>
+                    <label for="ck13">中华民国</label>
+
+                    <!-- 做内容块 -->
+                    <ul class="content">
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-商</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-周</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-汉</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-三国</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-东晋十三国</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-南北朝</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-唐代</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-五代十国</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-宋</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-元</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-明</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-清</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhanshi">
+                                <img src="../img/ooo.png" alt="">
+                                <div class="zhanshitext">
+                                    文物名称<br>材质
+                                </div>
+                            </div>
+                            <div class="zhanshi">
+                                    <h3>朝代简介-中华民国</h3>
+                                    <br>
+                                    <p>
+                                        <hr>
+                                        123<br>
+                                        123<br>
+                                        123123123
+                                    </p>
+                                    <a href="">跳转相关页面...</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 
             </div>
             <div class="rside">
-                <h2>我是右边框</h2>
-                <p>
-                    youbian
-                    youbian
-                    youbian
-                    youbian
-                    youbian
-                    youbian
-                </p>
-            </div>
-            <div class="content">
-                <h2>我是中间栏</h2>
-                <p>
-                    我是中间的内容
-                    <br>
-                    我是中间的内容
-                    <br>
-                    我是中间的内容
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    我是中间的内容
-                    <br>
-                    我是中间的内容
-                    <br>
-                    我是中间的内容
-                </p>
+                <h2>相关文章</h2>
+                <ul class="rightlist">
+                    <li><a href="">先秦岭南产贝与中原用贝</a></li>
+                    <li><a href="">先秦中原玳瑁的来源和用途</a></li>
+                    <li><a href="">先秦中原的大象及象牙的用途</a></li>
+                    <li><a href="">岭南出土的先秦中原青铜器</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer">
-            <p>网页底部主要放版权声明，备案信息，联系方式，友情链接等。</p>
+            <p>
+                网页底部主要放版权声明，备案信息，联系方式，友情链接等。
+                <br>
+                相关文章来自知网<br>
+                学号：20201100506<br>
+                姓名：王嘉兴<br>
+            </p>
         </div>
     </div>
 </body>
